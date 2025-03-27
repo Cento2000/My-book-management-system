@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+<body>
+<body style="background-color:skyblue">
+
+<center>
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="loginForm" onsubmit="return validateLogin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter Name"required><br></br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="password"required>
+
+            <button type="submit">Login</button>
+            <p class="error-message" id="error-message"></p>
+        </form>
+    </div>
+
+    <script>
+        // Function to validate username and password
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            // Predefined username and password
+            const predefinedUsername = "cento";
+            const predefinedPassword = "1234";
+
+            if (username === predefinedUsername && password === predefinedPassword) {
+                alert("Login successful!");
+                return true; // Allows form submission
+            } else {
+                document.getElementById("error-message").innerText = "Incorrect username or password.";
+                return false; // Prevents form submission
+            }
+        }
+    </script>
+
+</body>
+</html>

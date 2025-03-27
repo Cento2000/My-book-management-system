@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<body style="background-color:skyblue">
+
+<center>
+    <div class="container">
+        <h2>Library Admin dashboard</h2>
+        <input type="text" id="book-title" placeholder="Book Title">
+        <input type="text" id="book-author" placeholder="Author">
+        <button class="btn" onclick="addBook()">Add Book</button>
+
+        <table><thead><tr><th>Title</th><th>Author</th><th>Actions</th></tr></thead>
+        <tbody id="book-list"></tbody></table>
+    </div>
+
+    <script>
+        let books = [];
+        function addBook() {
+            const title = document.getElementById('book-title').value;
+            const author = document.getElementById('book-author').value;
+            if (title && author) {
+                books.push({ title, author }); renderBooks();
+                document.getElementById('book-title').value = '';
+                document.getElementById('book-author').value = '';
+            }
+        }
+        function editBook(i) {
+            const t = prompt('New title:', books[i].title);
+            const a = prompt('New author:', books[i].author);
+            if (t && a) { books[i] = { title: t, author: a }; renderBooks(); }
+        }
+        function deleteBook(i) { books.splice(i, 1); renderBooks(); }
+        function renderBooks() {
+            document.getElementById('book-list').innerHTML = books.map((b, i) =>
+                `<tr><td>${b.title}</td><td>${b.author}</td>
+                <td><button onclick="editBook(${i})">Edit</button>
+                <button onclick="deleteBook(${i})">Delete</button></td></tr>`).join('');
+        }
+    </script>
+</body>
+</html>

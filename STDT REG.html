@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Book Registration Form</title>
+    <style>
+       #successMessage {
+            display: none;  /* Initially hidden */
+            color: green;
+            font-weight: bold italic;
+        }
+    </style>
+    <script>
+        function displaySuccessMessage() {
+            // Display success message
+            document.getElementById("successMessage").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+<body style="background-color:skyblue">
+    <center>
+        <h2>Enter your details Here</h2>
+        <form>
+            <table>
+                <tr>
+                    <td>USER NAME:</td>
+                    <td><input type="text" name="user" placeholder="Enter Name" required></td>
+                </tr>
+                <tr>
+                    <td>Book borrowed:</td>
+                    <td><input type="text" name="Book" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="mail" required></td>
+                </tr>
+                <tr>
+                    <td>Duration of book possession:</td>
+                    <td><input type="time" name="duration" required></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="number" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td>ADM No:</td>
+                    <td><input type="number" name="ADM_NO" required></td>
+                </tr>
+                <tr>
+                    <td>SUBMIT:</td>
+                    <td><input type="button" name="submit" value="Register" onclick="displaySuccessMessage()"></td>
+                </tr>
+            </table>
+        </form>
+        <p id="successMessage">Registration successful! Thank you for submitting your details.</p>
+    </center>
+</body>
+</html>
