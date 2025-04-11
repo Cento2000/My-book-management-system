@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body style="background-color:skyblue">
+<center>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter Name" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+            <button type="submit">Login</button>
+            <p class="error-message" id="error-message" style="color: red;"></p>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+            
+            // Predefined username and password
+            const predefinedUsername = "cento";
+            const predefinedPassword = "1234";
+
+            if (username === predefinedUsername && password === predefinedPassword) {
+                errorMessage.innerText = ""; // Clear error message
+                alert("Login Successful! 0ne sec..."); // Show success message
+                setTimeout(() => {
+                    window.location.href = "ADMIN DASH.html"; // Redirect after 1 second
+                }, 1000);
+            } else {
+                errorMessage.innerText = "Incorrect username or password.";
+            }
+        } 
+    </script>
+</center>
+</body>
+</html>
+
